@@ -1,0 +1,14 @@
+.navbar-shadow {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.select_station{
+    height: 80px;
+    width: 100px;
+}
+.date{
+    height: 80px;
+    width: 120px;
+}
+.menu{
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
