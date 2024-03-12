@@ -12,3 +12,9 @@
 .menu{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+@font-face {
+    font-family: 'Truculenta'; /* Use your chosen font name */
+    src: url('/assets/fonts/Truculenta-VariableFont_opsz,wdth,wght.ttf') format('ttf'); /* Adjust the file path and format */
+    font-weight: normal;
+    font-style: normal;
+}

@@ -11,7 +11,7 @@ data.sort_values("DATETIMEDATA",inplace=True)
 data[['Date', 'Time']] = data['DATETIMEDATA'].str.split(expand=True)
 
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY],
+app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY,'/assets/styles.css'],
                 suppress_callback_exceptions=True,
                 meta_tags=[{'name': 'viewport',
                             'content': 'width=device-width, initial-scale=1.0'}]
@@ -33,7 +33,7 @@ navbar = dbc.NavbarSimple(
     brand_href="#",
     color="light",
     dark=False,
-    style={'height': '100px'},
+    style={'height': '100px','border-top': '5px solid #17B897'},
     className='navbar-shadow'
 )
 #-----------------------------------------home-------------------------------------------------
@@ -54,7 +54,7 @@ home_layout = html.Div(
                             value="02t",
                             clearable=False,
                             className="dropdown",
-                            style={'text-align': 'center'}
+                            style={'text-align': 'center','backgroundColor':'#B1FEEE'}
                         )
                     ],
                     className="select_station",
@@ -77,28 +77,34 @@ home_layout = html.Div(
                             value="2024-02-27",
                             clearable=False,
                             className="dropdown",
-                            style={'text-align': 'center'}
+                            style={'text-align': 'center','backgroundColor':'#B1FEEE'}
                         )
                     ],
                     className="date",
-                    style={'display': 'inline-block'}
-                )
+                    style={'display': 'inline-block',}
+                ),
+#-----------------------------------graph 1----------------------------------------------------------
+                html.Div(
+                    html.Div(
+                        children=dcc.Graph(
+                            id="pm25-chart1", config={"displayModeBar": True},
+                            style={'border': '5px solid #17B89','height' :'400px','width' : '800px','margin': 'auto'}, 
+                        ),
+                        className="card",
+                    ),style={'height' :'450px','width' : '1000px','margin': 'auto','backgroundColor' :'#F4F4F4'}
+    )
     ],
     className="menu",
-    style={'text-align': 'right'}
+    style={'text-align': 'right','color':'#17B897','backgroundColor':'#F4F4F4','height':'550px'}
     
     ),
-#-----------------------------------graph 1-----------------------------
-    html.Div(
-                html.Div(
-                    children=dcc.Graph(
-                        id="pm25-chart1", config={"displayModeBar": True},
-                    ),
-                    className="card",
-                )
+    html.Footer([
+        html.Br(),
+        html.P("PM2.5",style='font-size : 8px'),
+    ],style={'height': '200px'}
     )
 
-])
+],style={'backgroundColor':'#F4F4F4'},)
 #---------------------------------func chart 1---------------------------
 @app.callback(
         Output('pm25-chart1','figure'),
@@ -122,9 +128,10 @@ def update_chart(stationID,Date):
         ],
         "layout": {
             "title": {
-                "text": f'Graph of<br>Station: {stationID}',
+                "text": f'Graph of Station: {stationID}',
                 "x": 0.5,
                 "xanchor": "center",
+                "font": {"family": "Truculenta", "size": 24, "color": "#333"},
             },
             "xaxis": {"fixedrange": True},
             "yaxis": {"fixedrange": True},
@@ -133,6 +140,11 @@ def update_chart(stationID,Date):
         },
     }
     return pm25_figure
+# @app.callback(
+        
+# )
+# def update_chart2():
+#     pass
 
 #-----------------------------------------------new page---------------------------------------------
 new_page_layout = html.Div(
