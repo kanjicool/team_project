@@ -1,5 +1,7 @@
 # pip install -r  requirements.txt
-dash
+# %pip install "pycaret[full]"
 pycaret
+dash
 dash-bootstrap-components
 pandas
+plotly
