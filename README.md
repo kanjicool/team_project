@@ -11,30 +11,18 @@
 
 
 ## การติดตั้ง 
-``` bash
-git clone https://github.com/kanjicool/web_racha888.git
-```
-```
-pip install -r requirement.txt
-```
-##  สร้าง Virtual Environment & Run
 
-**windown**
+- Linux
 ``` bash
-pip install virtualenv
+python3 -m unittest -v tests/<test_file_name.py>
 ```
+- OSX
 ``` bash
-py -m venv env
+python -m unittest -v tests/<test_file_name.py>
 ```
-```
-.\env\Scripts\Activate.ps1
-```
-**linux**
+- Windows
 ``` bash
-python3 -m venv venv
-```
-```
-source venv/bin/activate
+python -m unittest -v tests/<test_file_name.py>
 ```
 
 ##  คำอธิบาย
