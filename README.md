@@ -1,4 +1,3 @@
-# team_project
 # Team Project
 **Team Project** เป็น Project พยากรณ์ค่า Pm2.5 ในอีก 7 วันข้างหน้าโดยใช้ Machine Learning Library  Pycaret ในการสร้างโมเดล โดยรูปแบบที่ใช้ในการ Train มี 2 รูปแบบ
 ได้แก่ Time series และ Regession
