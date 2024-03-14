@@ -22,7 +22,8 @@ pip install -r requirement.txt
 **windown**
 ``` bash
 pip install virtualenv
-
+```
+``` bash
 py -m venv env
 ```
 ```
